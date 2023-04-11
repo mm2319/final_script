@@ -31,10 +31,11 @@ x_1_train, y_1_train, x_2_train, y_2_train  = obtain_train_data_Two_compart( res
 start_1,trace_1 = Bayesian_regression_conti_spike_slab(y_1_train,x_1_train,np.shape(x_1_train[0])[0])
 start_2,trace_2 = Bayesian_regression_conti_spike_slab(y_2_train,x_2_train,np.shape(x_1_train[0])[0])
 
-print("the value of z_1 in model_1 of two compartment model is",start_1['z_1'])
-print("the value of pn_1 in model_1 of two compartment model is",start_1['beta_1'])
-print("the value of z_1 in model_2 of two compartment model is",start_2['z_1'])
-print("the value of pn_1 in model_2 of two compartment model is",start_2['beta_1'])
+print("the value of z_1 in model_1 of lorenz model is",start_1['z_1'])
+print("the value of pn_1 in model_1 of lorenz model is",start_1['pn_1'])
+print("the value of z_1 in model_2 of lorenz model is",start_2['z_1'])
+print("the value of pn_1 in model_2 of lorenz model is",start_2['pn_1'])
+
 
 T, Y = create_data_nonlinear(p=0.01)
 
@@ -46,10 +47,11 @@ x_1_train, y_1_train, x_2_train, y_2_train  = obtain_train_data_NonLinear( resul
 start_1,trace_1 = Bayesian_regression_conti_spike_slab(y_1_train,x_1_train,np.shape(x_1_train[0])[0])
 start_2,trace_2 = Bayesian_regression_conti_spike_slab(y_2_train,x_2_train,np.shape(x_1_train[0])[0])
 
-print("the value of z_1 in model_1 of nonlinear model is",start_1['z_1'])
-print("the value of pn_1 in model_1 of nonlinear model is",start_1['beta_1'])
-print("the value of z_1 in model_2 of nonlinear model is",start_2['z_1'])
-print("the value of pn_1 in model_2 of nonlinear model is",start_2['beta_1'])
+print("the value of z_1 in model_1 of lorenz model is",start_1['z_1'])
+print("the value of pn_1 in model_1 of lorenz model is",start_1['pn_1'])
+print("the value of z_1 in model_2 of lorenz model is",start_2['z_1'])
+print("the value of pn_1 in model_2 of lorenz model is",start_2['pn_1'])
+
 
 T, Y = create_data_lorenz(p=0.01)
 
@@ -63,12 +65,11 @@ start_1,trace_1 = Bayesian_regression_conti_spike_slab(y_1_train,x_1_train,np.sh
 start_2,trace_2 = Bayesian_regression_conti_spike_slab(y_2_train,x_2_train,np.shape(x_1_train[0])[0])
 start_3,trace_3 = Bayesian_regression_conti_spike_slab(y_3_train,x_3_train,np.shape(x_1_train[0])[0])
 print("the value of z_1 in model_1 of lorenz model is",start_1['z_1'])
-print("the value of pn_1 in model_1 of lorenz model is",start_1['beta_1'])
+print("the value of pn_1 in model_1 of lorenz model is",start_1['pn_1'])
 print("the value of z_1 in model_2 of lorenz model is",start_2['z_1'])
-print("the value of pn_1 in model_2 of lorenz model is",start_2['beta_1'])
+print("the value of pn_1 in model_2 of lorenz model is",start_2['pn_1'])
 print("the value of z_1 in model_3 of lorenz model is",start_3['z_1'])
-print("the value of pn_1 in model_3 of lorenz model is",start_3['beta_1'])
-
+print("the value of pn_1 in model_3 of lorenz model is",start_3['pn_1'])
 print("$"*25)
 print("for the discrete spike and slab prior")
 print("$"*25)

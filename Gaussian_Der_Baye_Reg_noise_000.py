@@ -274,7 +274,7 @@ try:
   print("the value of pn_1 in model_3 of lorenz model is",start_3['pn_1'])
 except:
   print("error")
-
+try:
   print("$"*25)
   print("for the discrete spike and slab prior")
   print("$"*25)

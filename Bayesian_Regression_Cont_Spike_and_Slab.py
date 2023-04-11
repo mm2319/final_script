@@ -29,6 +29,9 @@ def Bayesian_regression_conti_spike_slab(Y_1, X_1, size_fun_lib):
         mu_1 = pm.Deterministic(name="mu_1", var = pm.math.matrix_dot(X_1,beta_1))
         Y_obs_1 = pm.Normal('Y_obs_1', mu=mu_1, sigma = sigma, observed = Y1)
     with basic_model: 
-        start = pm.find_MAP()  
-        trace_rh = pymc.sampling_jax.sample_numpyro_nuts(2000, tune=2000, target_accept=0.95)
+        trace_rh = pymc.sampling_jax.sample_numpyro_nuts(2000, tune=2000, target_accept=0.9)
+        beta = trace_rh.posterior.beta_1.as_numpy()
+        pn = trace_rh.posterior.pn_1.as_numpy()
+        z = trace_rh.posterior.z_1.as_numpy()
+        start = {"beta_1":beta,"pn_1":pn,"z_1":z}
     return start, trace_rh
