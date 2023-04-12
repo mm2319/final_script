@@ -33,5 +33,5 @@ def Bayesian_regression_conti_spike_slab(Y_1, X_1, size_fun_lib):
         beta = trace_rh.posterior.beta_1.as_numpy()
         pn = trace_rh.posterior.pn_1.as_numpy()
         z = trace_rh.posterior.z_1.as_numpy()
-        start = {"beta_1":beta,"pn_1":pn,"z_1":z}
+        start = {"beta_1":beta,"z_1":z}
     return start, trace_rh
