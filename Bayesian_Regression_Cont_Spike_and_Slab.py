@@ -30,7 +30,7 @@ def Bayesian_regression_conti_spike_slab(Y_1, X_1, size_fun_lib):
         Y_obs_1 = pm.Normal('Y_obs_1', mu=mu_1, sigma = sigma, observed = Y1)
     with basic_model: 
         trace_rh = pymc.sampling_jax.sample_numpyro_nuts(2000, tune=2000, target_accept=0.9)
-        beta = trace_rh.posterior.beta_1.as_numpy().mean(axis=0)
-        z = trace_rh.posterior.z_1.as_numpy().mean(axis=0)
+        beta = trace_rh.posterior.beta_1.as_numpy().mean(axis=0).mean(axis=0)
+        z = trace_rh.posterior.z_1.as_numpy().mean(axis=0).mean(axis=0)
         start = {"beta_1":beta,"z_1":z}
     return start, trace_rh
