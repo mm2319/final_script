@@ -15,9 +15,9 @@ from two_compartment import create_data_twocompart
 from Derivative_Data_Lorenz import obtain_train_data_Lorenz
 from Derivative_Data_NonLinear import obtain_train_data_NonLinear
 from Derivative_Data_Two_Compart import obtain_train_data_Two_compart
-from Bayesian_Regression_Disc_Spike_and_Slab import Bayesian_regression_disc_spike_slab
+
 from Bayesian_Regression_Cont_Spike_and_Slab import Bayesian_regression_conti_spike_slab
-from Bayesian_Regression_SS_Selection_2 import Bayesian_regression_SS_Selction
+
 print("$"*25)
 print("for the continuous spike and slab prior")
 print("$"*25)
