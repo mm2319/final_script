@@ -16,12 +16,12 @@ def Bayesian_regression_conti_spike_slab(Y_1, X_1, size_fun_lib):
         spike_raw = pm.Normal('spike_raw', mu = 0, sigma = 1, shape = size_fun_lib)
         pn_1 = pm.Deterministic('spike',tau*spike_raw*pm.invlogit(lambda_hat))
         sigma = pm.Gamma('sigma',1.,0.1,shape=1)
-        z_1  = pm.Laplace('z_1', mu=0., b=10., shape=size_fun_lib)        
+        z_1  = pm.Laplace('z_1', mu=0., b=1., shape=size_fun_lib)        
         beta_1 = pm.Deterministic('beta_1', z_1*pn_1)
         mu_1 = pm.Deterministic(name="mu_1", var = pm.math.matrix_dot(X_1,beta_1))
         Y_obs_1 = pm.Normal('Y_obs_1', mu=mu_1, sigma = sigma, observed = Y1)
     with basic_model: 
-        trace_rh = pm.sample(4000, tune=2000, cores=1, random_seed=1,init="adapt_diag")
+        trace_rh = pm.sample(4000, tune=2000, cores=1, random_seed=1, init="adapt_diag")
     with basic_model:
         start = pm.find_MAP()
         start['sigma'] = trace_rh['sigma'].mean(axis=0)
