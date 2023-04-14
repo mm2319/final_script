@@ -19,7 +19,7 @@ def Bayesian_regression_SS_Selction(Y_1, X_1, size_fun_lib, further_prior=True):
         mu_1 = pm.Deterministic(name="mu_1", var = pm.math.matrix_dot(X_1,beta_1))
         Y_obs_1 = pm.Normal('Y_obs_1', mu=mu_1, sd = sigma, observed = Y1)
     with basic_model:   
-        trace_rh = pm.sample(4000, tune=2000, cores=1, random_seed=1, nuts={'target_accept':0.95})
+        trace_rh = pm.sample(4000, tune=2000, cores=1, random_seed=1, nuts={'target_accept':0.95},init="adapt_diag")
     with basic_model:
         start = pm.find_MAP()
         start['p_1'] = trace_rh['p_1'].mean(axis=0)
